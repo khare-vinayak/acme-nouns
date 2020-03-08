@@ -22,11 +22,33 @@ const Things = conn.define('things',{
 
 const sync = async()=>{
     await conn.sync({force:true})
+    
+    await People.create({
+    name:'Aleksander'    })
+
+    await Things.create({
+        name:'Pen'    })
+
+    await Things.create({
+            name:'Cup'    })
+    await Places.create({
+        name:'NYC'    })
+
+    await Places.create({
+            name:'Newark'    })
+
+
 }
 
 
-sync()
 
-module.export={
-    sync
+//sync()
+
+module.exports={
+    sync,
+    models:{
+        People,
+        Things,
+        Places
+    }
 };
