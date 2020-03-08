@@ -25,6 +25,9 @@ const sync = async()=>{
     
     await People.create({
     name:'Aleksander'    })
+    
+    await People.create({
+        name:'Vinayak'    })
 
     await Things.create({
         name:'Pen'    })
@@ -40,9 +43,12 @@ const sync = async()=>{
 
 }
 
+People.belongsTo(Places);
+Places.hasMany(People);
+People.belongsTo(Things);
+Things.hasMany(People);
 
-
-//sync()
+sync()
 
 module.exports={
     sync,
